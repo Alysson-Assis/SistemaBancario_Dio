@@ -18,9 +18,9 @@ while True:
 
     if opcao == "d":
         valor = float(input("Informe o valor de depósito: R$"))
-        if saldo == 0:
-            saldo = valor
-            print(f"Depósito: R${valor:.2f}")
+        if valor > 0:
+            saldo += valor
+            extrato += f"Depósito: R${valor:.2f}\n"
             
 
     elif opcao == "s":
@@ -38,12 +38,12 @@ while True:
                 print("Você exedeu o valor limite de saque.")
             
             saldo -= valor
-            print(f"Saque: R${valor:.2f}")
+            extrato += f"Saque: R${valor:.2f}"
             
 
     elif opcao == "e":
-        extrato = round(saldo, 3)
-        print(f"Extrato:\nR${extrato :.2f}")
+        print(extrato)
+        print(f"\nSaldo: R${saldo:.2f}")
 
     elif opcao == "q":
         break
